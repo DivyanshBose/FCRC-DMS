@@ -166,3 +166,57 @@ def all_components(request):
         return redirect('admin_login')
     components = Component.objects.all()
     return render(request, 'all_components.html',locals())
+
+
+def edit_component(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    error = ""
+    user = User.objects.get(id = pid)
+    # component = Component.objects.get(user = user)
+    if request.method == "POST":
+        srNo = request.POST['srNo']
+        work = request.POST['work']
+        group = request.POST['group']
+        nmc = request.POST['nmc']
+        indate = request.POST['indate']
+        outdate = request.POST['outdate']
+        servicableber = request.POST['servicableber']
+        fault = request.POST['fault']
+        doc = request.POST['doc']
+        doj = request.POST['doj']
+        remarks = request.POST['remarks']
+        info = request.POST['info']
+
+        c = Component()
+        c.user = user
+        c.srNo = srNo
+        c.work = work
+        c.group = group
+        c.nmc = nmc
+        c.indate = indate
+        c.outdate = outdate
+        c.servicableber = servicableber
+        c.fault = fault
+        c.doc = doc
+        c.doj = doj
+        c.remarks = remarks
+        c.info = info
+        
+        c.save()
+        try:
+            error = "no"
+        except:
+            error = "yes"
+        
+    return render(request, 'edit_component.html', locals())
+
+def delete_component(request,pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    
+    c = Component.objects.get(id=pid)
+    c.delete() 
+
+    return redirect('all_components')
+

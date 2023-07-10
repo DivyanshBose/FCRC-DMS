@@ -31,6 +31,8 @@ urlpatterns = [
     path('admin_home/',admin_home, name='admin_home'),
     path('all_components/',all_components, name='all_components'),
     path('admin_addComponent/',admin_addComponent, name='admin_addComponent'),
+    path('delete_component/<int:pid>',delete_component, name='delete_component'),
+    path('edit_component/<int:pid>',edit_component, name='edit_component'),
    
 
     path('', include('django_dyn_dt.urls')),
