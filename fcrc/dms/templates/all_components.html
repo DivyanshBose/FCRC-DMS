@@ -1,0 +1,48 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+
+<div class="card-shadow m-2">
+    <div class="card-body">
+                <h5 class="p-2 text-danger" style="border-bottom : 2px solid orange">Component Details</h5>
+
+                <div class="container-fluid">
+                    <table class="table table-bordered table-hover table-sm" id="example">
+                        <thead class="text-white bg-danger">
+                            <tr>
+                                <th>SNo</th>
+                                <th>Work</th>
+                                <th>Grp</th>
+                                <th>Nomenclature</th>
+                                <th>In Date</th>
+                                <th>Out Date</th>
+                                <th>ServicableBER</th>
+                                <th>Fault</th>
+                                <th>Date of completion</th>
+                                <th>Date of Joining</th>
+                                <th>Remarks</th>
+                                <th>Information</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in components %}
+                            <tr>
+                                <td>{{i.srNo}}</td>
+                                <td>{{i.work}}</td>
+                                <td>{{i.group}}</td>
+                                <td>{{i.nmc}}</td>
+                                <td>{{i.indate}}</td>
+                                <td>{{i.outdate}}</td>
+                                <td>{{i.servicableber}}</td>
+                                <td>{{i.fault}}</td>
+                                <td>{{i.doc}}</td>
+                                <td>{{i.doj}}</td>
+                                <td>{{i.remarks}}</td>
+                                <td>{{i.info}}</td>  
+                            </tr>    
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+    </div>
+</div>
+{% endblock %}
