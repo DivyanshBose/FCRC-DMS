@@ -1,2 +1,11 @@
+{% load static %}
 {% include 'header.html' %}
 
+<style>
+    body {
+        background-image: url('{% static "images/bg_image.png" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
