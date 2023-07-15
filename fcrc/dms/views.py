@@ -26,7 +26,7 @@ def emp_login(request):
     if request.method == "POST":
         em = request.POST['email']
         pwd = request.POST['pwd']
-        user = authenticate(username = em, password =pwd)
+        user = authenticate(username = em, password = pwd)
         if user:
             login(request, user)
             error = "no"
@@ -172,8 +172,7 @@ def edit_component(request, pid):
     if not request.user.is_authenticated:
         return redirect('admin_login')
     error = ""
-    user = User.objects.get(id = pid)
-    # component = Component.objects.get(user = user)
+    user = request.user
     if request.method == "POST":
         srNo = request.POST['srNo']
         work = request.POST['work']
@@ -208,7 +207,7 @@ def edit_component(request, pid):
             error = "no"
         except:
             error = "yes"
-        
+    
     return render(request, 'edit_component.html', locals())
 
 def delete_component(request,pid):
@@ -219,4 +218,5 @@ def delete_component(request,pid):
     c.delete() 
 
     return redirect('all_components')
+
 

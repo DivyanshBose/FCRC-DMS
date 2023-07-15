@@ -13,49 +13,78 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Serial Number</label>
-                            <input type="text" name="srNo" class="form-control" placeholder="Enter Serial Number" value="{{component.sn}}" required>
+                            <input type="text" name="srNo" class="form-control" placeholder="Enter Serial Number" value="{{component.srNo}}" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Work</label>
-                            <input type="text" name="work" class="form-control" placeholder="Enter Work"value=" {{component.wk}}" required>
+                            <label>Work Order No.</label>
+                            <input type="text" name="work" class="form-control" placeholder="Enter Work" value="{{component.work}}" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Group</label>
-                            <input type="text" name="group" class="form-control" placeholder="Enter Group" value="{{component.gp}}" required>
+                            <select name="Group" class="form-control">
+                                <option value="NONE"> Select Group</option>
+                                <option value="TL">TL</option>
+                                <option value="FCRC">FCRC</option>
+                                <option value="P&P/R&I">P&P/R&I</option>
+                                <option value="WSG"> WSG</option>
+                                <option value="FINANCE">FINANCE</option>
+                                <option value="HQ"> HQ</option>
+                                <option value="GMP OFFICE">GMP OFFICE</option>
+                                <option value="ARCC">ARCC</option>
+                                <option value="SCSO">SCSO</option>
+                                <option value="RDR/FLYCATCHER">RDR/FLYCATCHER</option>
+                                <option value="TT CELL">TT CELL</option>
+                                <option value="GE">GE</option>
+                                <option value="ALWC">ALWC</option>
+                                <option value="COMDTT SECTT">COMDTT SECTT</option>
+                                <option value="LEGAL CELL">LEGAL CELL</option>
+                                <option value="OE/CLR-T-90">"OE/CLR-T-90"</option>
+                                <option value="BFSR">BFSR</option>
+                            </select>    
+                                
+
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Nomenclature</label>
-                            <input type="text" name="nmc" class="form-control" placeholder="Enter Nomenclature" value="{{component.nm}}" required >
+                            <input type="text" name="nmc" class="form-control" placeholder="Enter Nomenclature" value="{{component.nmc}}" required >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>InDate</label>
-                            <input type="date" name="indate" class="form-control" placeholder="Enter In Date" value="{{component.idt}}" required >
+                            <input type="date" name="indate" class="form-control" placeholder="Enter In Date" value="{{component.indate}}" required >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>OutDate</label>
-                            <input type="date" name="outdate" class="form-control" placeholder="Enter Out Date" value="{{component.odt}}" required >
+                            <input type="date" name="outdate" class="form-control" placeholder="Enter Out Date" value="{{component.outdate}}" required >
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>ServicableBER</label>
-                            <input type="text" name="servicableber" class="form-control" placeholder="Enter ServicableBER" value="{{component.sbr}}" required >
+                            <label>Servicable/BER</label>
+                            <select name="Servicable/BER" class="form-control">
+                                <option value="NONE">Servicable/BER</option>
+                                <option value="Serviceable">Serviceable</option>
+                                <option value="BER">BER</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Fault</label>
-                            <input type="text" name="fault" class="form-control" placeholder="Enter Fault" value="{{component.flt}}" required >
+                            <select name="Fault" class="form-control">
+                                <option value="NONE">Fault</option>
+                                <option value="Software">Software</option>
+                                <option value="Hardware">Hardware</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -73,13 +102,17 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Remarks</label>
-                            <input type="text" name="remarks" class="form-control" placeholder="Enter Remarks" value="{{component.rm}}" required >
+                            <select name="Remarks" class="form-control">
+                                <option value="NONE">Remarks</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Pending">Pending</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Information</label>
-                            <input type="text" name="info" class="form-control" placeholder="Enter Information" value="{{component.ifo}}" required >
+                            <input type="text" name="info" class="form-control" placeholder="Enter Information" value="{{component.info}}" required >
                         </div>
                     </div>
                 </div>
@@ -96,7 +129,7 @@
 {% if error == "no" %}
 <script>
     alert('Component added Successfully');
-    window.location = ('{% url "edit_component" component.user.id %}');
+    window.location = ("{% url 'edit_component' component.user.id %}");
 </script>
 {% endif %}
 
